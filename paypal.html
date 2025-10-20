@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal  Dashboard</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for a modern look -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom styles for PayPal-like colors and fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --paypal-blue: #00457C; /* Dark Blue */
+            --paypal-light-blue: #0070BA; /* Primary Blue */
+            --paypal-yellow: #FFC439; /* Accent Yellow */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .paypal-blue-bg { background-color: var(--paypal-blue); }
+        .paypal-blue-text { color: var(--paypal-blue); }
+        .paypal-light-blue-bg { background-color: var(--paypal-light-blue); }
+        .paypal-light-blue-border { border-color: var(--paypal-light-blue); }
+
+        /* Custom icon styling for the 'P' logo */
+        .paypal-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--paypal-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0.5rem #fff; /* White border effect */
+            position: relative;
+        }
+        .paypal-logo-inner {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+            transform: rotate(-10deg);
+        }
+
+        /* Responsive layout for the main content */
+        @media (min-width: 1024px) {
+            .main-content-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Primary Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <div class="paypal-logo">
+                    <span class="paypal-logo-inner">P</span>
+                </div>
+                <h1 class="text-2xl font-bold paypal-blue-text hidden sm:block">Dashboard</h1>
+            </div>
+
+            <!-- Profile and Notifications -->
+            <div class="flex items-center space-x-4">
+                <button class="p-2 rounded-full hover:bg-gray-100 transition" onclick="showMessage('Notifications are not implemented in this replica.')">
+                    <i data-lucide="bell" class="w-6 h-6 text-gray-600"></i>
+                </button>
+                <button class="flex items-center space-x-2 p-2 rounded-full hover:bg-gray-100 transition" onclick="showMessage('Profile settings coming soon!')">
+                    <div class="w-8 h-8 rounded-full bg-gray-400 flex items-center justify-center text-white font-semibold">JD</div>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-600 hidden sm:block"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Welcome Message -->
+        <h2 class="text-3xl font-extrabold text-gray-800 mb-6">Hi, Jane Doe</h2>
+
+        <!-- Dashboard Layout Grid -->
+        <div class="grid lg:main-content-grid gap-8">
+            
+            <!-- Left Column: Balance, Actions, Activity -->
+            <div>
+                
+                <!-- Balance Card -->
+                <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-t-amber-400">
+                    <div class="flex justify-between items-center">
+                        <p class="text-lg text-gray-600 font-medium">PayPal Balance</p>
+                        <i data-lucide="wallet" class="w-6 h-6 text-gray-500"></i>
+                    </div>
+                    <div class="mt-2 flex items-baseline space-x-2">
+                        <span id="current-balance" class="text-5xl font-bold text-gray-900">$1,452.88</span>
+                        <span class="text-xl text-gray-500">USD</span>
+                    </div>
+                    
+                    <!-- Funding Source/Bank -->
+                    <div class="mt-6 flex items-center justify-between text-sm text-gray-500 border-t pt-4">
+                        <p>Linked Bank: **0123</p>
+                        <button class="font-medium text-blue-600 hover:text-blue-800 transition" onclick="showMessage('Linking new accounts is not available.')">Manage</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons: Send & Request -->
+                <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Quick Actions</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        
+                        <button id="send-btn" class="flex flex-col items-center justify-center p-4 rounded-lg paypal-light-blue-bg text-white font-semibold text-lg hover:bg-opacity-90 transition duration-150 shadow-md">
+                            <i data-lucide="send" class="w-6 h-6 mb-1"></i>
+                            Send
+                        </button>
+                        
+                        <button id="request-btn" class="flex flex-col items-center justify-center p-4 rounded-lg bg-white border-2 border-gray-300 text-gray-700 font-semibold text-lg hover:bg-gray-50 transition duration-150 shadow-md" onclick="showMessage('Request Money is currently unavailable.')">
+                            <i data-lucide="user-plus" class="w-6 h-6 mb-1"></i>
+                            Request
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity/Transactions -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex justify-between items-center">
+                        Recent Activity
+                        <a href="#" class="text-sm text-blue-600 hover:underline" onclick="showMessage('Full history view not available.')">View All</a>
+                    </h3>
+                    
+                    <ul id="transaction-list">
+                        <!-- Transactions will be populated by JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: Send Money Form/Panel -->
+            <div id="send-money-panel" class="lg:sticky lg:top-24 hidden">
+                <div class="bg-white p-6 rounded-xl shadow-xl border-t-4 paypal-light-blue-border">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold paypal-blue-text">Send Money</h3>
+                        <button id="close-send-panel" class="p-1 rounded-full text-gray-500 hover:bg-gray-100 transition">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+
+                    <form id="send-money-form">
+                        <div class="space-y-6">
+                            
+                            <!-- Recipient Input -->
+                            <div>
+                                <label for="recipient" class="block text-sm font-medium text-gray-700 mb-2">Recipient Email or Phone</label>
+                                <input type="text" id="recipient" placeholder="name@example.com or phone number" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition shadow-sm">
+                            </div>
+
+                            <!-- Amount Input -->
+                            <div>
+                                <label for="amount" class="block text-sm font-medium text-gray-700 mb-2">Amount (USD)</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-xl font-bold">$</span>
+                                    <input type="number" id="amount" step="0.01" min="0.01" placeholder="0.00" required
+                                           class="w-full pl-8 pr-4 py-3 text-2xl font-semibold border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition">
+                                </div>
+                            </div>
+
+                            <!-- Note/Memo -->
+                            <div>
+                                <label for="note" class="block text-sm font-medium text-gray-700 mb-2">Note (Optional)</label>
+                                <textarea id="note" rows="2" placeholder="What is this payment for?" 
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition shadow-sm"></textarea>
+                            </div>
+                            
+                            <!-- Funding Source -->
+                            <div class="text-sm text-gray-600 p-3 bg-gray-50 rounded-lg">
+                                <i data-lucide="credit-card" class="inline w-4 h-4 mr-1"></i>
+                                Funding source: PayPal Balance / Bank (Simulated)
+                            </div>
+                            
+                            <!-- Action Button -->
+                            <button type="submit" class="w-full py-3 paypal-blue-bg text-white font-bold text-lg rounded-xl hover:bg-opacity-90 transition duration-150 shadow-lg hover:shadow-xl">
+                                Send Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+
+    </main>
+    
+    <!-- Custom Modal for Messages (Instead of alert()) -->
+    <div id="message-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden" onclick="document.getElementById('message-modal').classList.add('hidden')">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95" onclick="event.stopPropagation()">
+            <h4 class="text-xl font-bold mb-3 paypal-blue-text">PayPal Info</h4>
+            <p id="modal-content" class="text-gray-700 mb-4"></p>
+            <button class="w-full py-2 paypal-light-blue-bg text-white font-semibold rounded-lg hover:bg-opacity-90" onclick="document.getElementById('message-modal').classList.add('hidden')">
+                Got It
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // --- Simulated Data & State ---
+        let balance = 1452.88;
+        
+        const initialTransactions = [
+            { id: 1, type: 'sent', recipient: 'Amazon Services', amount: 45.99, date: 'Oct 8, 2025' },
+            { id: 2, type: 'received', recipient: 'Sarah L.', amount: 150.00, date: 'Oct 7, 2025' },
+            { id: 3, type: 'sent', recipient: 'Coffee Shop Inc.', amount: 5.25, date: 'Oct 7, 2025' },
+            { id: 4, type: 'received', recipient: 'Freelance Client', amount: 320.00, date: 'Oct 6, 2025' },
+        ];
+
+        // --- Utility Functions ---
+
+        /**
+         * Shows a custom modal message instead of using window.alert()
+         * @param {string} message The message content to display.
+         */
+        function showMessage(message) {
+            const modal = document.getElementById('message-modal');
+            document.getElementById('modal-content').innerText = message;
+            modal.classList.remove('hidden');
+        }
+        
+        /**
+         * Formats a number as USD currency string.
+         * @param {number} num 
+         */
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(num);
+        }
+
+        /**
+         * Updates the balance display on the dashboard.
+         */
+        function updateBalanceDisplay() {
+            document.getElementById('current-balance').innerText = formatCurrency(balance);
+        }
+
+        /**
+         * Renders the transaction list.
+         */
+        function renderTransactions() {
+            const list = document.getElementById('transaction-list');
+            list.innerHTML = ''; // Clear existing list
+
+            initialTransactions.forEach(tx => {
+                const isSent = tx.type === 'sent';
+                const sign = isSent ? '-' : '+';
+                const color = isSent ? 'text-red-600' : 'text-green-600';
+                const icon = isSent ? 'arrow-up-right' : 'arrow-down-left';
+
+                const listItem = document.createElement('li');
+                listItem.className = 'flex items-center justify-between py-3 border-b last:border-b-0 hover:bg-gray-50 transition duration-100 rounded-md px-2 -mx-2 cursor-pointer';
+                listItem.onclick = () => showMessage(`Transaction ID ${tx.id}:\n${isSent ? 'Paid to' : 'Received from'} ${tx.recipient} on ${tx.date}.\nAmount: ${sign}${formatCurrency(tx.amount)}`);
+                
+                listItem.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center ${isSent ? 'bg-red-100' : 'bg-green-100'}">
+                            <i data-lucide="${icon}" class="w-5 h-5 ${color}"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">${isSent ? 'Payment to' : 'Received from'} ${tx.recipient}</p>
+                            <p class="text-sm text-gray-500">${tx.date}</p>
+                        </div>
+                    </div>
+                    <p class="font-semibold text-lg ${color}">
+                        ${sign}${formatCurrency(tx.amount)}
+                    </p>
+                `;
+                list.appendChild(listItem);
+            });
+            // Re-render lucide icons after list population
+            lucide.createIcons();
+        }
+
+        // --- Event Handlers ---
+
+        /**
+         * Shows the send money panel and handles the Send button click.
+         */
+        document.getElementById('send-btn').addEventListener('click', () => {
+            const panel = document.getElementById('send-money-panel');
+            panel.classList.remove('hidden');
+            // Scroll to the panel on mobile view
+            if (window.innerWidth < 1024) {
+                panel.scrollIntoView({ behavior: 'smooth' });
+            }
+            document.getElementById('recipient').focus();
+        });
+
+        /**
+         * Hides the send money panel.
+         */
+        document.getElementById('close-send-panel').addEventListener('click', () => {
+            document.getElementById('send-money-panel').classList.add('hidden');
+        });
+
+        /**
+         * Handles the form submission for sending money.
+         */
+        document.getElementById('send-money-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const recipient = document.getElementById('recipient').value.trim();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const note = document.getElementById('note').value.trim();
+            const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+            if (amount <= 0 || isNaN(amount)) {
+                return showMessage('Please enter a valid amount.');
+            }
+
+            if (amount > balance) {
+                return showMessage(`Error: Insufficient funds. Your balance is ${formatCurrency(balance)}.`);
+            }
+
+            // Simulate transaction
+            balance -= amount;
+
+            const newTx = {
+                id: initialTransactions.length + 1,
+                type: 'sent',
+                recipient: recipient,
+                amount: amount,
+                date: date
+            };
+            initialTransactions.unshift(newTx); // Add to the top
+            
+            // Update UI
+            updateBalanceDisplay();
+            renderTransactions();
+            document.getElementById('send-money-form').reset();
+            document.getElementById('send-money-panel').classList.add('hidden');
+
+            showMessage(`Success! You sent ${formatCurrency(amount)} to ${recipient}.\nNote: ${note || 'None'}`);
+        });
+
+        // --- Initial Load ---
+        window.onload = () => {
+            updateBalanceDisplay();
+            renderTransactions();
+        };
+
+    </script>
+</body>
+</html>

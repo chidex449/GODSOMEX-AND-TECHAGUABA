@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GODSOMEX AND TECHAGUABA| Abuja Luxury Hotel</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#003366',
+                        'accent-gold': '#AA8453',
+                        'cta-red': '#E02D3C',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+      
+        .sticky-cta {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            transition: bottom 0.3s ease-in-out;
+            z-index: 50;
+        }
+        .sticky-cta.visible {
+            bottom: 0;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl sm:text-3xl font-extrabold text-primary-blue tracking-tight">
+                        GODSOMEX AND TECHAGUABA <span class="text-accent-gold font-light">HOTEL & SUITES</span>
+                    </a>
+                    <p class="text-xs text-gray-500 hidden sm:block">Abuja, Nigeria</p>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#rooms" class="text-sm font-medium text-gray-700 hover:text-primary-blue transition duration-150 ease-in-out">Rooms & Suites</a>
+                    <a href="#dining" class="text-sm font-medium text-gray-700 hover:text-primary-blue transition duration-150 ease-in-out">Dining</a>
+                    <a href="#meetings" class="text-sm font-medium text-gray-700 hover:text-primary-blue transition duration-150 ease-in-out">Events & Meetings</a>
+                    <a href="#offers" class="text-sm font-medium text-gray-700 hover:text-primary-blue transition duration-150 ease-in-out">Offers</a>
+                    <a href="#contact" class="text-sm font-medium text-gray-700 hover:text-primary-blue transition duration-150 ease-in-out">Contact</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <a href="#" class="px-6 py-2 border border-transparent text-sm font-semibold rounded-full shadow-lg text-white bg-cta-red hover:bg-red-700 transition duration-300 ease-in-out transform hover:scale-105">
+                        BOOK NOW
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-blue" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 py-2">
+            <a href="#rooms" class="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Rooms & Suites</a>
+            <a href="#dining" class="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Dining</a>
+            <a href="#meetings" class="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Events & Meetings</a>
+            <a href="#offers" class="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Offers</a>
+            <a href="#contact" class="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Contact</a>
+            <div class="px-4 py-3">
+                <a href="#" class="block w-full text-center px-4 py-2 border border-transparent text-sm font-semibold rounded-full shadow-md text-white bg-cta-red hover:bg-red-700">BOOK NOW</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-bg h-[60vh] md:h-[80vh] flex items-end relative">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pb-16">
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
+                GODSOMEX AND TECHAGUABA AND SUITES: Your Sanctuary in the Capital.
+            </h1>
+            <p class="text-xl text-gray-100 max-w-2xl mb-8 drop-shadow-md">
+                Experience refined luxury, exceptional service, and unparalleled elegance in the heart of Abuja.
+            </p>
+
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl max-w-6xl mx-auto md:mx-0 -mb-24">
+                <form class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+                    <div class="md:col-span-1">
+                        <label for="checkin" class="block text-sm font-medium text-gray-700">Check-in</label>
+                        <input type="date" id="checkin" value="2025-10-15" class="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-primary-blue focus:border-primary-blue transition duration-150">
+                    </div>
+                    <div class="md:col-span-1">
+                        <label for="checkout" class="block text-sm font-medium text-gray-700">Check-out</label>
+                        <input type="date" id="checkout" value="2025-10-18" class="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-primary-blue focus:border-primary-blue transition duration-150">
+                    </div>
+                    <div class="md:col-span-1">
+                        <label for="rooms-count" class="block text-sm font-medium text-gray-700">Rooms</label>
+                        <select id="rooms-count" class="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-primary-blue focus:border-primary-blue transition duration-150">
+                            <option>1 Room</option>
+                            <option>2 Rooms</option>
+                            <option>3 Rooms</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-1">
+                        <label for="guests-count" class="block text-sm font-medium text-gray-700">Guests</label>
+                        <select id="guests-count" class="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-primary-blue focus:border-primary-blue transition duration-150">
+                            <option>1 Guest</option>
+                            <option>2 Guests</option>
+                            <option>3 Guests</option>
+                            <option>4+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-1">
+                        <button type="submit" class="w-full bg-cta-red text-white py-3 px-4 rounded-lg font-semibold hover:bg-red-700 transition duration-300 ease-in-out shadow-lg transform hover:scale-[1.02]">
+                            FIND RATES
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-32 pb-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-extrabold text-primary-blue mb-4">
+                    The Hallmark of Nigerian Hospitality
+                </h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    Set on picturesque landscaped gardens, *GODSOMEX AND TECHAGUABA HOTEL AND SUITES** is at the heart of Nigeria's Federal Capital Territory. We offer an unrivaled blend of sophistication, state-of-the-art facilities, and authentically African luxury.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 text-center">
+                <div class="p-4 rounded-xl">
+                    <svg class="w-12 h-12 text-accent-gold mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3 .895-3 2 1.343 2 3 2m-3-13h2m4 0h2m-6 4h4m-4 4h4m-4 4h4m-4-12h2m4 0h2m-6 4h4m-4 4h4m-4 4h4"></path></svg>
+                    <p class="text-lg font-semibold text-primary-blue">Fine Dining</p>
+                    <p class="text-sm text-gray-500">8 Restaurants & Bars</p>
+                </div>
+                <div class="p-4 rounded-xl">
+                    <svg class="w-12 h-12 text-accent-gold mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m-9-9a9 9 0 019-9m0 18c-2.676 0-5.234-1.11-7.071-3.078M12 3v18m0-18c2.676 0 5.234 1.11 7.071 3.078"></path></svg>
+                    <p class="text-lg font-semibold text-primary-blue">Outdoor Pool</p>
+                    <p class="text-sm text-gray-500">Resort-style tranquility</p>
+                </div>
+                <div class="p-4 rounded-xl">
+                    <svg class="w-12 h-12 text-accent-gold mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-3m-1.5-1.5L12 12m0 0l-5.5 5.5M12 12V3"></path></svg>
+                    <p class="text-lg font-semibold text-primary-blue">Executive Lounge</p>
+                    <p class="text-sm text-gray-500">Exclusive VIP access</p>
+                </div>
+                <div class="p-4 rounded-xl">
+                    <svg class="w-12 h-12 text-accent-gold mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v2m4-2v2m4-2v2M8 11v2m4-2v2m4-2v2m0 5H8a2 2 0 01-2-2V7a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z"></path></svg>
+                    <p class="text-lg font-semibold text-primary-blue">Business Hub</p>
+                    <p class="text-sm text-gray-500">24 Meeting Rooms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="rooms" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-primary-blue mb-10 text-center">Our Accommodations</h2>
+            
+            <div class="lg:flex lg:items-center bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+                <div class="lg:w-1/2 h-64 lg:h-96">
+                    <img src="https://placehold.co/800x600/AA8453/ffffff?text=Deluxe+King+Room" alt="Deluxe King Room" class="w-full h-full object-cover">
+                </div>
+                <div class="lg:w-1/2 p-8 lg:p-12">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">Deluxe King Room</h3>
+                    <p class="text-gray-600 mb-4">
+                        Spacious and light-filled, our Deluxe King Rooms feature contemporary interiors, bespoke fabrics, and cutting-edge technology. Enjoy city views from your private sanctuary.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-500 mb-6 space-y-1">
+                        <li>Marble bathroom with premium amenities</li>
+                        <li>48-inch LED TV and high-speed Wi-Fi</li>
+                        <li>King-sized Serenity Bed™</li>
+                    </ul>
+                    <a href="#" class="inline-block px-6 py-2 border border-primary-blue text-sm font-semibold rounded-full text-primary-blue hover:bg-primary-blue hover:text-white transition duration-300">
+                        View Details & Rates
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:flex lg:items-center bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+                <div class="lg:w-1/2 p-8 lg:p-12 order-2 lg:order-1">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">Executive Business Suite</h3>
+                    <p class="text-gray-600 mb-4">
+                        Perfect for the discerning corporate traveler, this expansive suite offers separate living and working areas, ensuring productivity and relaxation.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-500 mb-6 space-y-1">
+                        <li>Separate lounge and dining area</li>
+                        <li>Small kitchenette with refrigerator</li>
+                        <li>Access to the exclusive Executive Lounge</li>
+                    </ul>
+                    <a href="#" class="inline-block px-6 py-2 border border-primary-blue text-sm font-semibold rounded-full text-primary-blue hover:bg-primary-blue hover:text-white transition duration-300">
+                        View Details & Rates
+                    </a>
+                </div>
+                <div class="lg:w-1/2 h-64 lg:h-96 order-1 lg:order-2">
+                    <img src="https://placehold.co/800x600/003366/ffffff?text=Executive+Business+Suite" alt="Executive Business Suite" class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="dining" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-primary-blue mb-4">Culinary Excellence</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+                Savor exceptional cuisines from around the globe at our collection of eight distinct restaurants and bars.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.01] transition duration-300">
+                    <img src="https://placehold.co/600x400/333333/ffffff?text=Restaurant+Interior" alt="Restaurant Interior" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">The Capital Grill</h3>
+                        <p class="text-gray-600 text-sm">Fine dining steakhouse offering continental and Nigerian fusion dishes in an elegant setting.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.01] transition duration-300">
+                    <img src="https://placehold.co/600x400/AA8453/333333?text=Pool+Bar+Cocktail" alt="Pool Bar" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Fulani Pool Bar</h3>
+                        <p class="text-gray-600 text-sm">Relax by the pool with light snacks, fresh juices, and signature cocktails overlooking the gardens.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.01] transition duration-300">
+                    <img src="https://placehold.co/600x400/003366/ffffff?text=Piano+Lounge" alt="Piano Lounge" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">The Piano Lounge</h3>
+                        <p class="text-gray-600 text-sm">Enjoy premium spirits and live music in our sophisticated, 24-hour lobby lounge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="sticky-cta-bar" class="sticky-cta bg-primary-blue p-4 shadow-2xl md:hidden">
+        <a href="#" class="w-full text-center block px-4 py-3 text-lg font-bold rounded-lg text-white bg-cta-red hover:bg-red-700 transition duration-300">
+            CHECK AVAILABILITY
+        </a>
+    </div>
+
+    <footer id="contact" class="bg-gray-900 text-white mt-16 pt-12 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 border-b border-gray-700 pb-8">
+                <div>
+                    <h4 class="text-xl font-semibold text-accent-gold mb-4">Contact Us</h4>
+                    <p class="text-sm text-gray-400 mb-2">
+                        90 Aguiyi Ironsi St, Maitama, Abuja, FCT
+                    </p>
+                    <p class="text-sm text-gray-400 mb-2">
+                        <a href="tel:+2348000001000" class="hover:text-white transition duration-150">+234 800 000 1000</a>
+                    </p>
+                    <p class="text-sm text-gray-400">
+                        <a href="mailto:reservations@mrgoc.com" class="hover:text-white transition duration-150">reservations@mrgoc.com</a>
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold text-accent-gold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#rooms" class="text-sm text-gray-400 hover:text-white transition duration-150">Rooms & Suites</a></li>
+                        <li><a href="#dining" class="text-sm text-gray-400 hover:text-white transition duration-150">Restaurants</a></li>
+                        <li><a href="#meetings" class="text-sm text-gray-400 hover:text-white transition duration-150">Events</a></li>
+                        <li><a href="#offers" class="text-sm text-gray-400 hover:text-white transition duration-150">Special Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold text-accent-gold mb-4">Policies</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-150">Privacy Policy</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-150">Terms of Use</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-150">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-xl font-semibold text-accent-gold mb-4">Newsletter</h4>
+                    <p class="text-sm text-gray-400 mb-4">Subscribe for exclusive offers and updates.</p>
+                    <form>
+                        <input type="email" placeholder="Enter your email" class="w-full p-3 rounded-lg text-gray-900 mb-3 focus:outline-none focus:ring-2 focus:ring-accent-gold">
+                        <button type="submit" class="w-full bg-cta-red text-white py-3 rounded-lg text-sm font-semibold hover:bg-red-700 transition duration-300">
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center pt-4">
+                <p class="text-sm text-gray-500">&copy; 2025 GODSOMEX AND TECHAGUABA HOTEL AND SUITES. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const stickyCtaBar = document.getElementById('sticky-cta-bar');
+
+            // 1. Mobile Menu Toggle
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // 2. Sticky CTA Bar Visibility on Scroll (for mobile devices)
+            const handleScroll = () => {
+                const heroHeight = document.querySelector('.hero-bg').offsetHeight;
+                
+                if (window.scrollY > heroHeight / 2) {
+                    stickyCtaBar.classList.add('visible');
+                } else {
+                    stickyCtaBar.classList.remove('visible');
+                }
+            };
+
+            if (window.innerWidth < 768) {
+                window.addEventListener('scroll', handleScroll);
+            }
+        });
+     </script>
+</body>
+</html>
